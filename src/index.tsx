@@ -1,6 +1,6 @@
 import "./index.scss";
 import Button from "./Button";
 import Loader from "./Loader";
-import SvgIcon, { IconProps } from "./SvgIcon";
+import SvgIcon, { SvgIconProps } from "./SvgIcon";
 
-export { Button, Loader, SvgIcon, IconProps };
+export { Button, Loader, SvgIcon, SvgIconProps };

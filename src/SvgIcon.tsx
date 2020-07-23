@@ -1,6 +1,6 @@
 import React from "react";
 
-export type IconProps = {
+export type SvgIconProps = {
   icons?: {};
   name: string;
   className?: string;
@@ -10,7 +10,7 @@ export type IconProps = {
   onClick?: () => void;
 };
 
-class SvgIcon extends React.Component<IconProps> {
+class SvgIcon extends React.Component<SvgIconProps> {
   state: { icon: string | null } = { icon: null };
 
   async componentDidMount() {
@@ -32,7 +32,7 @@ class SvgIcon extends React.Component<IconProps> {
     this.setState({ icon });
   }
 
-  async componentDidUpdate(nextProps: IconProps) {
+  async componentDidUpdate(nextProps: SvgIconProps) {
     if (this.props.name === undefined || nextProps.name === undefined) {
       return;
     }
