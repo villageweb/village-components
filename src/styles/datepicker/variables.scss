@@ -1,0 +1,23 @@
+@import '../variables';
+
+$datepicker__background-color: #fff !default;
+$datepicker__border-color: hsl(206, 19%, 95%) !default;
+$datepicker__highlighted-color: #3dcc4a !default;
+$datepicker__muted-color: #ccc !default;
+$datepicker__selected-color: transparentize($blue, 0.2) !default;
+$datepicker__text-color: #000 !default;
+$datepicker__header-color: #000 !default;
+$datepicker__navigation-disabled-color: lighten(
+  $datepicker__muted-color,
+  10%
+) !default;
+
+$datepicker__border-radius: 3px !default;
+$datepicker__day-margin: 0.3rem 0.35rem !default;
+
+$datepicker__font-size: 0.8rem !default;
+$datepicker__font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$datepicker__item-size: 1.7rem !default;
+$datepicker__margin: 0.4rem !default;
+$datepicker__navigation-size: 0.45rem !default;
+$datepicker__triangle-size: 8px !default;

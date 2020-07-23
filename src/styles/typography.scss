@@ -1,0 +1,132 @@
+html {
+  // font-size: 14px;
+  // @include respond-to(medium) {
+  font-size: 16px;
+  // }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
+
+.lh {
+  line-height: 1.5rem;
+
+  &--1 {
+    line-height: 1.1;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+}
+
+.heading {
+  &--lg {
+    padding-top: 0;
+    @include respond-to(small) {
+      padding-top: 2rem;
+    }
+    font-size: 2.5rem;
+  }
+  &--xlg {
+    font-size: 5rem;
+  }
+}
+
+.text {
+  &--center {
+    text-align: center;
+  }
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+
+  &--underline {
+    text-decoration: underline;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--prewrap {
+    white-space: pre-wrap;
+  }
+
+  &--nowrap {
+    white-space: nowrap;
+  }
+
+  &--break {
+    word-break: break-all;
+  }
+
+  &--ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &--link {
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  &--white {
+    color: white;
+  }
+
+  &--lg {
+    font-size: 1.2rem;
+    &-sm {
+      @include respond-to(small) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &--xlg {
+    font-size: 3rem;
+  }
+
+  &--md {
+    font-size: 1rem;
+  }
+
+  &--sm {
+    font-size: 0.95rem;
+  }
+
+  &--xs {
+    font-size: 0.8rem;
+  }
+
+  &--thin {
+    font-weight: 100;
+  }
+  &--light {
+    font-weight: 300;
+  }
+  &--regular {
+    font-weight: 400;
+  }
+  &--bold {
+    font-weight: bold;
+  }
+}

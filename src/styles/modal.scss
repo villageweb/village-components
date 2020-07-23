@@ -1,0 +1,24 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-body {
+    min-width: 19rem;
+    max-width: 90%;
+  }
+
+  &--sm {
+    background-color: white;
+    text-align: center;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+}

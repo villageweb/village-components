@@ -1,0 +1,114 @@
+$button-padding: 0.75rem;
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $button-padding;
+
+  span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: pulse infinite ease 1s;
+    display: inline-block;
+    background-color: white;
+    margin: 0 4px;
+
+    &:nth-of-type(2) {
+      animation-delay: 0.3s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 0.6s;
+    }
+  }
+
+  &--black {
+    span {
+      background-color: black;
+    }
+  }
+}
+
+.button {
+  position: relative;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  padding: $button-padding;
+  font-size: 0.9rem;
+  font-weight: bold;
+  appearance: none;
+  opacity: 1;
+  transition: opacity 0.75s;
+
+  &--sm {
+    padding: 0.75rem;
+  }
+
+  &--rounded {
+    border-radius: 20px;
+    padding: 0.75rem 2rem;
+  }
+
+  &--secondary:hover {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--link {
+    padding: 0;
+    a {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+
+  &--ghost {
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+    text-align: unset;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      box-shadow: none;
+    }
+  }
+
+  &--contained {
+    width: unset;
+  }
+}

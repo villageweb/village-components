@@ -1,0 +1,14 @@
+.page {
+  margin: $space-xlg auto;
+  padding: 0 $space-md;
+  &--form-only {
+    max-width: map-get($map: $breakpoints, $key: small);
+    padding: 0;
+  }
+  &--md {
+    max-width: map-get($breakpoints, medium);
+  }
+  &--lg {
+    max-width: map-get($breakpoints, large);
+  }
+}

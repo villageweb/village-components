@@ -1,0 +1,56 @@
+@import 'styles/variables';
+
+$properties: margin, padding;
+$sizes: (
+  xs: $space-xs,
+  sm: $space-sm,
+  md: $space-md,
+  lg: $space-lg,
+  xlg: $space-xlg
+);
+
+$sides: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right
+);
+
+@each $prop in $properties {
+  .#{$prop} {
+    @each $size, $value in $sizes {
+      &--#{$size} {
+        #{$prop}: $value;
+      }
+      &--none {
+        #{$prop}: 0;
+      }
+      &-v--#{$size} {
+        #{$prop}-top: $value;
+        #{$prop}-bottom: $value;
+      }
+      &-h--#{$size} {
+        #{$prop}-left: $value;
+        #{$prop}-right: $value;
+      }
+    }
+
+    @each $key, $side in $sides {
+      &-#{$key} {
+        &--none {
+          #{$prop}-#{$side}: 0;
+        }
+        @each $size, $value in $sizes {
+          &--#{$size} {
+            #{$prop}-#{$side}: $value;
+          }
+          &--#{$size}-sm {
+            @include respond-to(small) {
+              #{$prop}-#{$side}: $value;
+            }
+          }
+        }
+      }
+    }
+  }
+}
