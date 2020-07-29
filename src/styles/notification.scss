@@ -1,0 +1,68 @@
+@import "styles/variables";
+@import "styles/breakpoints";
+
+.message {
+  box-shadow: $shadow;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  background-color: transparentize($color: white, $amount: 0.025);
+  z-index: 999;
+  width: 300px;
+  
+  left: calc(50% - 150px);
+  padding: 5%;
+  border-radius: 2px;
+  @include respond-to(small) {
+    left: unset;
+    border-radius: 5px;
+    padding: 25px;
+  }
+  
+  &--fade-out {
+    opacity: 0;
+    top: -100px;
+    animation: notification 10s;
+  }
+  &--stay {
+    opacity: 1;
+    top: 20px;
+    animation: notification 10s;
+  }
+}
+
+@keyframes notification {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  7%,
+  95% {
+    opacity: 1;
+    top: 20px;
+  }
+}
+
+// .notification {
+//   padding: 0.2rem;
+//   font-size: 0.95rem;
+//   text-align: center;
+//   color: #ffffff;
+//   opacity: 1;
+//   animation: fade-out 7s;
+
+//   &--fail {
+//     background-color: $fail;
+//   }
+
+//   &--success {
+//     background-color: $success;
+//   }
+
+//   &__close {
+//     padding: 0 0.5rem;
+//     cursor: pointer;
+//   }
+// }
