@@ -18,13 +18,13 @@ Finally, to fix the multiple copies of React bug that shows up with linked React
 You can now import `village-components` as a normal package installed from npm like so:
 
 ```
-import SvgIcon from 'village-components'
+import { SvgIcon } from 'village-components'
 ```
 
 You can also import the type definitions if you're using TypeScript like so:
 
 ```
-import SvgIcon, { SvgIconProps } from 'village-components'
+import { SvgIcon, SvgIconProps } from 'village-components'
 ```
 
 ## Components
@@ -38,7 +38,7 @@ import SvgIcon, { SvgIconProps } from 'village-components'
 This component renders an svg icon retrieved from some external source.
 
 ```typescript
-import SvgIcon from "village-components";
+import { SvgIcon } from "village-components";
 ```
 
 The consumer has to pass in a function taking in a name and returning a promise that eventually returns the actual svg markup as a string.
@@ -100,7 +100,7 @@ SvgIconProps = {
 This component renders a notification on the top right of the screen and in the center for mobile.
 
 ```typescript
-import Notification from "village-components";
+import { Notification } from "village-components";
 ```
 
 ```typescript
@@ -117,9 +117,9 @@ import Notification from "village-components";
 ```typescript
 NotificationProps = {
   message: string;
-  type: "success" | "fail";
-  persist: boolean;
-  onClose: () => void;
+  type?: "success" | "fail";
+  persist?: boolean;
+  onClose?: () => void;
 };
 ```
 

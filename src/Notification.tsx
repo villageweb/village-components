@@ -3,9 +3,9 @@ import Icon from "./Icon";
 
 export type NotificationProps = {
   message: string;
-  type: "success" | "fail";
-  persist: boolean;
-  onClose: () => void;
+  type?: "success" | "fail";
+  persist?: boolean;
+  onClose?: () => void;
 };
 
 export class Notification extends Component<NotificationProps> {
