@@ -9,35 +9,26 @@ export type NotificationProps = {
 };
 
 export class Notification extends Component<NotificationProps> {
+  state = { show: true };
   timeout: number | undefined;
-  ref: HTMLDivElement | null;
 
   close = () => {
-    if(window.location.origin.includes('localhost')) {
-      console.log('closing notification', this.ref);
-    }
-    this.ref?.parentElement?.removeChild(this.ref);
     this.props.onClose && this.props.onClose();
     clearTimeout(this.timeout);
+    this.setState({ show: false });
   };
-
-  componentWillUnmount() {
-    if(window.location.origin.includes('localhost')) {
-      console.log('unmounting notification component', this.ref);
-    }
-  }
 
   render() {
     const { message, persist, type } = this.props;
 
-    if (!message) {
-      return;
+    if (!message || !this.state.show) {
+      return null;
     }
 
     let animationClass = "message--stay";
 
     if (!persist) {
-      animationClass = "message--fade-out";
+      animationClass = "message--go";
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.close();
@@ -46,7 +37,6 @@ export class Notification extends Component<NotificationProps> {
 
     return (
       <div
-        ref={(ref) => (this.ref = ref)}
         className={`message message--${type} ${animationClass}`}
         onClick={this.close}
       >
