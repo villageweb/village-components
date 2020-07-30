@@ -17,13 +17,13 @@ Finally, to fix the multiple copies of React bug that shows up with linked React
 
 You can now import `village-components` as a normal package installed from npm like so:
 
-```
+```typescript
 import { SvgIcon } from 'village-components'
 ```
 
 You can also import the type definitions if you're using TypeScript like so:
 
-```
+```typescript
 import { SvgIcon, SvgIconProps } from 'village-components'
 ```
 

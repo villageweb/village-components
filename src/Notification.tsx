@@ -13,10 +13,19 @@ export class Notification extends Component<NotificationProps> {
   ref: HTMLDivElement | null;
 
   close = () => {
+    if(window.location.origin.includes('localhost')) {
+      console.log('closing notification', this.ref);
+    }
     this.ref?.parentElement?.removeChild(this.ref);
     this.props.onClose && this.props.onClose();
     clearTimeout(this.timeout);
   };
+
+  componentWillUnmount() {
+    if(window.location.origin.includes('localhost')) {
+      console.log('unmounting notification component', this.ref);
+    }
+  }
 
   render() {
     const { message, persist, type } = this.props;
