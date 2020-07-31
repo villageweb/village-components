@@ -1,8 +1,8 @@
-import "./index.scss";
 import Button from "./Button";
+import "./index.scss";
 import Loader from "./Loader";
-import SvgIcon, { SvgIconProps } from "./SvgIcon";
 import Notification, { NotificationProps } from "./Notification";
+import SvgIcon, { SvgIconProps } from "./SvgIcon";
 
 export {
   Button,
@@ -12,3 +12,5 @@ export {
   Notification,
   NotificationProps,
 };
+
+export * from "./functions";

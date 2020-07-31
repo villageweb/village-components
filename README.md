@@ -18,13 +18,13 @@ Finally, to fix the multiple copies of React bug that shows up with linked React
 You can now import `village-components` as a normal package installed from npm like so:
 
 ```typescript
-import { SvgIcon } from 'village-components'
+import { SvgIcon } from "village-components";
 ```
 
 You can also import the type definitions if you're using TypeScript like so:
 
 ```typescript
-import { SvgIcon, SvgIconProps } from 'village-components'
+import { SvgIcon, SvgIconProps } from "village-components";
 ```
 
 ## Components
@@ -32,6 +32,11 @@ import { SvgIcon, SvgIconProps } from 'village-components'
 - [SvgIcon](#svgicon)
 - [Notification](#notification)
 - [Button](#button)
+
+## Functions and Utilities
+
+- [Redux Loader Reducer](#redux-loader-reducer)
+- [isDeviceSize](#isdevicesize)
 
 ### SvgIcon
 
@@ -124,3 +129,50 @@ NotificationProps = {
 ```
 
 ### Button
+
+### Redux Loader Reducer
+
+Provides a reducer for actions that might require a loader/ spinner because they are async e.g calls to your backend. Dispatch `startAsync` before your long running code and the reducer adds your action into state. Then dispatch `stopAsync` once it is done, the action is then removed from state. You can use this in your components to show a loader while your action is stored as state managed by the `reduxLoaderReducer`.
+
+```typescript
+import { reduxLoaderReducer } from "village-components";
+
+const rootReducer = combineReducers({
+  common,
+  orders,
+  loader: reduxLoaderReducer,
+});
+```
+
+```typescript
+import { startAsync, stopAsync } from "village-components";
+
+dispatch(startAsync(LOGIN));
+// your code to the server.
+// any component listening to state from our reducer knows this is in progress if the LOGIN action is part of reduxLoaderReducer's state array
+dispatch(stopAsync(LOGIN));
+```
+
+##### shape of the state managed by this reducer
+
+```typescript
+{
+  action: string;
+  ...params: any
+}[];
+
+// You can pass in an optional second argument that has to be an object that will eventually get spread onto the object in state. This is useful when there might be multiple place where the loader could land and you want to match a specific one.
+
+// e.g
+// state => [{ action: LOGIN }, { action: DELETE_ITEM, id: 3 }];
+```
+
+### isDeviceSize
+
+Returns a boolean that determines whether the window width is one of `SMALL` (<= 425px), `MEDIUM` (<= 768px) or `LARGE` (> 768px).
+
+```typescript
+const isMobile: boolean = isDeviceSize(DeviceSize.SMALL);
+```
+
+`DeviceSize` is the enumeration of the 3 device sizes.
