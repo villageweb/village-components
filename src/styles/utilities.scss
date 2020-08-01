@@ -108,21 +108,6 @@
   }
 }
 
-.label {
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  width: 18rem;
-  text-align: center;
-
-  &--lg {
-    padding: 1rem 3rem;
-  }
-
-  &--empty {
-    animation: pulse infinite cubic-bezier(0.4, 0, 1, 1) 1s;
-  }
-}
-
 .pos {
   &--bottom {
     position: absolute;

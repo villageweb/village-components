@@ -20,6 +20,7 @@ type FormProps = {
   onChanges?: (e: Record<string, any>) => void;
   submitButtonText: string;
   footerContent?: any;
+  subFooterContent?: any;
   headerContent?: any;
   className?: string;
   noShadow?: boolean;
@@ -97,6 +98,7 @@ class Form extends Component<FormProps> {
       >
         {this.props.headerContent}
         {fields}
+        {this.props.subFooterContent}
         <Button
           className="button button--primary"
           type="submit"

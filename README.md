@@ -89,7 +89,7 @@ render() {
   }
 ```
 
-Optionally, a `saveIcon` function can be passed in to once retrieval is done for caching into some kind of store. For this case you ideally want to wrap `SvgIcon` in a container component that hooks onto a store. Example with react-redux below. Code below is all you'd need to code effectively with this approach.
+Optionally, a `saveIcon` function can be passed in to once retrieval is done for caching into some kind of store. *NB* this is recommended since on every render a fetch of the icon will be executed. For this case you ideally want to wrap `SvgIcon` in a container component that hooks onto a store. Example with react-redux below. Code below is all you'd need to code effectively with this approach.
 
 // your icon component that you will use everywhere.
 
