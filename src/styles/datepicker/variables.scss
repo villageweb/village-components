@@ -1,10 +1,8 @@
-@import '../variables';
-
 $datepicker__background-color: #fff !default;
 $datepicker__border-color: hsl(206, 19%, 95%) !default;
 $datepicker__highlighted-color: #3dcc4a !default;
 $datepicker__muted-color: #ccc !default;
-$datepicker__selected-color: transparentize($blue, 0.2) !default;
+$datepicker__selected-color: transparentize(blue, 0.2) !default;
 $datepicker__text-color: #000 !default;
 $datepicker__header-color: #000 !default;
 $datepicker__navigation-disabled-color: lighten(

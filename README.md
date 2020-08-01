@@ -29,6 +29,7 @@ import { SvgIcon, SvgIconProps } from "village-components";
 
 ## Components
 
+- [Form](#form)
 - [SvgIcon](#svgicon)
 - [Notification](#notification)
 - [Button](#button)
@@ -37,6 +38,34 @@ import { SvgIcon, SvgIconProps } from "village-components";
 
 - [Redux Loader Reducer](#redux-loader-reducer)
 - [isDeviceSize](#isdevicesize)
+
+### Form
+
+An extensive (and highly opinionated) form component. For configuration and example usage see [`FormConfig`](https://github.com/villageweb/village-components/blob/master/src/components/Form/form-config.ts). For styling the fields and button there are a couple of [classes to override](#css-classes-to-override).
+
+```typescript
+import { Form } from "village-components";
+
+<Form
+  config={loginForm}
+  submit={(data) =>
+    this.props.login({ username: data.email, password: data.password })
+  }
+  submitButtonText="Log in"
+  error={this.props.loginError}
+  footerContent={this.signUpOption}
+  isLoading={this.props.isLoading}
+/>;
+```
+
+#### css classes to override
+
+- `form`
+- `button`, `button--primary`
+- `form__input`, `form__input--bg`
+- `form__textarea`, `form__radio`, `form__radio-checkmark`
+- `form__label`, `form__field-message`, `form__validation`, `form__error`
+- `form__footer`
 
 ### SvgIcon
 

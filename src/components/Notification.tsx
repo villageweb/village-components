@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Icon from "./Icon";
 
-export type NotificationProps = {
+type NotificationProps = {
   message: string;
   type?: "success" | "fail";
   persist?: boolean;
   onClose?: () => void;
 };
 
-export class Notification extends Component<NotificationProps> {
+class Notification extends Component<NotificationProps> {
   state = { show: true };
   timeout: number | undefined;
 
@@ -51,4 +51,4 @@ export class Notification extends Component<NotificationProps> {
   }
 }
 
-export default Notification;
+export { NotificationProps, Notification };

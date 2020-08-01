@@ -1,6 +1,6 @@
 import React from "react";
 
-export type SvgIconProps = {
+type SvgIconProps = {
   icons?: {};
   name: string;
   className?: string;
@@ -86,4 +86,4 @@ class SvgIcon extends React.Component<SvgIconProps> {
   }
 }
 
-export default SvgIcon;
+export { SvgIcon, SvgIconProps };

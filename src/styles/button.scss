@@ -19,7 +19,8 @@ $button-padding: 0.75rem;
   position: absolute;
   left: 0;
   right: 0;
-  top: $button-padding;
+  top: 50%;
+  transform: translateY(-50%);
 
   span {
     width: 10px;

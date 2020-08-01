@@ -8,4 +8,4 @@ const Loader: React.FC<{ className: string }> = ({ className }) => (
   </div>
 );
 
-export default Loader;
+export { Loader };

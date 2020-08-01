@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import SvgIcon from "./SvgIcon";
+import { SvgIcon } from "./SvgIcon";
 
 const Icon = (props: any) => {
   const fetchIcon = async (name: string) => {
