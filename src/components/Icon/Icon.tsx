@@ -6,7 +6,7 @@ type IconProps = {
   name: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  onClick?: () => void;
+  onClick?: (e?: Event) => void;
 };
 
 class Icon extends React.Component<IconProps> {

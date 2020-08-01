@@ -89,7 +89,7 @@ IconProps = {
   name: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  onClick?: () => void; // a callback to a click on the icon
+  onClick?: (e?: Event) => void; // a callback to a click on the icon
 };
 ```
 
