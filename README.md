@@ -18,19 +18,19 @@ Finally, to fix the multiple copies of React bug that shows up with linked React
 You can now import `village-components` as a normal package installed from npm like so:
 
 ```typescript
-import { SvgIcon } from "village-components";
+import { Icon } from "village-components";
 ```
 
 You can also import the type definitions if you're using TypeScript like so:
 
 ```typescript
-import { SvgIcon, SvgIconProps } from "village-components";
+import { Icon, IconProps } from "village-components";
 ```
 
 ## Components
 
 - [Form](#form)
-- [SvgIcon](#svgicon)
+- [Icon](#icon)
 - [Notification](#notification)
 - [Button](#button)
 
@@ -67,64 +67,28 @@ import { Form } from "village-components";
 - `form__label`, `form__field-message`, `form__validation`, `form__error`
 - `form__footer`
 
-### SvgIcon
+### Icon
 
-This component renders an svg icon retrieved from some external source.
-
-```typescript
-import { SvgIcon } from "village-components";
-```
-
-The consumer has to pass in a function taking in a name and returning a promise that eventually returns the actual svg markup as a string.
-
-```jsx
-render() {
-    const fetchIcon = async (name) => {
-      const res = await axios.get(
-        `https://res.cloudinary.com/vw/image/upload/icons/${name}.svg`
-      );
-      return res.data;
-    };
-    return <SvgIcon fetchIcon={fetchIcon} />;
-  }
-```
-
-Optionally, a `saveIcon` function can be passed in to once retrieval is done for caching into some kind of store. *NB* this is recommended since on every render a fetch of the icon will be executed. For this case you ideally want to wrap `SvgIcon` in a container component that hooks onto a store. Example with react-redux below. Code below is all you'd need to code effectively with this approach.
-
-// your icon component that you will use everywhere.
+This component renders an svg icon retrieved from icons stored on Cloudinary.
 
 ```typescript
-...
-import { saveIcon } from "../store/ui";
+import { Icon } from "village-components";
 
-class Icon extends React.Component<SvgIconProps> {
-  render() {
-    const fetchIcon = async (name) => {
-      const res = await axios.get(
-        `https://res.cloudinary.com/vw/image/upload/icons/${name}.svg`
-      );
-      return res.data;
-    };
-    return <SvgIcon {...this.props} fetchIcon={fetchIcon} />;
-  }
-}
-
-const mapStateToProps = (state) => ({ ...state.ui });
-
-export default connect(mapStateToProps, { saveIcon })(Icon); // saveIcon passed in as a prop to SvgIcon
-
+<Icon
+  name="cross"
+  size="sm"
+  className="fill--white cursor--pointer v-align--middle"
+  onClick={this.closeMessage}
+/>;
 ```
 
 #### List of props
 
 ```typescript
-SvgIconProps = {
-  icons?: {}; // a dictionary with icon names as keys and svg markup as values, used to lookup icons instead of fetching over the network or another expensive operation
+IconProps = {
   name: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  fetchIcon: (name: string) => Promise<string>;
-  saveIcon?: (name: string, svg: string) => void;
   onClick?: () => void; // a callback to a click on the icon
 };
 ```

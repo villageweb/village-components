@@ -1,44 +1,44 @@
+import axios from "axios";
 import React from "react";
+import IconContext from "./IconContext";
 
-type SvgIconProps = {
-  icons?: {};
+type IconProps = {
   name: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  fetchIcon: (name: string) => Promise<string>;
-  saveIcon?: (name: string, svg: string) => void;
   onClick?: () => void;
 };
 
-class SvgIcon extends React.Component<SvgIconProps> {
+class Icon extends React.Component<IconProps> {
+  static contextType = IconContext;
   state: { icon: string | null } = { icon: null };
 
   async componentDidMount() {
-    this.getIcon();
+    this.fetchIcon();
   }
 
-  async getIcon() {
-    let icon;
-    if (this.props.icons) {
-      icon = this.props.icons[this.props.name];
-      if (icon) {
-        return this.setState({ icon });
-      }
+  async fetchIcon() {
+    let icon = this.context[this.props.name];
+    if (icon) {
+      return this.setState({ icon });
     }
 
-    icon = await this.props.fetchIcon(this.props.name);
-    this.props.saveIcon && this.props.saveIcon(this.props.name, icon);
+    const res = await axios.get(
+      `https://res.cloudinary.com/vw/image/upload/icons/${this.props.name}.svg`
+    );
+    icon = res.data;
+
+    this.context[this.props.name] = icon;
 
     this.setState({ icon });
   }
 
-  async componentDidUpdate(nextProps: SvgIconProps) {
+  async componentDidUpdate(nextProps: IconProps) {
     if (this.props.name === undefined || nextProps.name === undefined) {
       return;
     }
     if (this.props.name !== nextProps.name) {
-      const icon = await this.props.fetchIcon(this.props.name);
-      this.setState({ icon });
+      this.fetchIcon();
     }
   }
 
@@ -86,4 +86,4 @@ class SvgIcon extends React.Component<SvgIconProps> {
   }
 }
 
-export { SvgIcon, SvgIconProps };
+export { Icon, IconProps };

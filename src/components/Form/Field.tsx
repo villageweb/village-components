@@ -1,7 +1,7 @@
 import { endOfDay, isToday } from "date-fns";
 import React from "react";
 import DatePicker from "react-datepicker";
-import Icon from "../Icon";
+import { Icon } from "../Icon/Icon";
 import "../../styles/datepicker/datepicker.scss";
 
 const Field = (props: any) => {
