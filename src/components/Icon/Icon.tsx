@@ -1,12 +1,12 @@
 import axios from "axios";
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import IconContext from "./IconContext";
 
 type IconProps = {
   name: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  onClick?: (e?: Event) => void;
+  onClick?: (event?: SyntheticEvent) => void;
 };
 
 class Icon extends React.Component<IconProps> {
