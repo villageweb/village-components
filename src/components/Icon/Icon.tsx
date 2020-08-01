@@ -5,7 +5,7 @@ import IconContext from "./IconContext";
 type IconProps = {
   name: string;
   className?: string;
-  size?: "xs" | "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg" | "xlg";
   onClick?: (event?: SyntheticEvent) => void;
 };
 
