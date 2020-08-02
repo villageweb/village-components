@@ -27,6 +27,12 @@ You can also import the type definitions if you're using TypeScript like so:
 import { Icon, IconProps } from "village-components";
 ```
 
+For the styles import `index.css`. For the breakpoints mixin import `breakpoint.scss`.
+```css
+@import '~village-components/dist/index.css';
+@import '~village-components/dist/breakpoints.scss';
+```
+
 ## Components
 
 - [Form](#form)
@@ -62,7 +68,7 @@ import { Form } from "village-components";
 
 - `form`
 - `button`, `button--primary`
-- `form__input`, `form__input--bg`
+- `form__input`, `form__input--lg`
 - `form__textarea`, `form__radio`, `form__radio-checkmark`
 - `form__label`, `form__field-message`, `form__validation`, `form__error`
 - `form__footer`

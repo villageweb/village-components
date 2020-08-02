@@ -1,13 +1,20 @@
+/**
+  const SMALL = 425;
+  const MEDIUM = 768;
+  const LARGE = 1200;
+*/
+
 $breakpoints: (
-  'min': 288px, // this is the width of the form on 320px phone, lots of the pages have forms
-  'small': 425px,
-  'medium': 768px,
-  'large': 1200px
+  "min": 288px,
+  // this is the width of the form on 320px phone, lots of the pages have forms
+  "small": 425px,
+  "medium": 768px,
+  "large": 1200px,
 );
 
 @mixin respond-to($name) {
   @if map-has-key($breakpoints, $name) {
-    @media (min-width: map-get($breakpoints, $name)) {
+    @media (min-width: map-get($breakpoints, $name) + 1) {
       @content;
     }
   } @else {

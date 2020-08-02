@@ -10,7 +10,7 @@ type NotificationProps = {
 
 class Notification extends Component<NotificationProps> {
   state = { show: true };
-  timeout: number | undefined;
+  timeout: NodeJS.Timeout;
 
   close = () => {
     this.props.onClose && this.props.onClose();
