@@ -94,7 +94,7 @@ import { Icon } from "village-components";
 IconProps = {
   name: string;
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg" | "xlg";
   onClick?: (e?: Event) => void; // a callback to a click on the icon
 };
 ```
