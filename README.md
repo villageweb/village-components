@@ -28,9 +28,10 @@ import { Icon, IconProps } from "village-components";
 ```
 
 For the styles import `index.css`. For the breakpoints mixin import `breakpoint.scss`.
+
 ```css
-@import '~village-components/dist/index.css';
-@import '~village-components/dist/breakpoints.scss';
+@import "~village-components/dist/index.css";
+@import "~village-components/dist/breakpoints.scss";
 ```
 
 ## Components
@@ -128,6 +129,25 @@ NotificationProps = {
 ```
 
 ### Button
+
+```typescript
+import { Button } from "village-components";
+
+<Button isLoading={false} mode="primary" isContained={true} />;
+```
+
+#### Props
+
+```typescript
+{
+  isLoading?: boolean | undefined;
+  mode?: "primary" | "secondary" | "tertiary";
+  isContained?: boolean;
+}
+```
+
+#### Classes to override
+`button`, `button--primary`, `button--secondary`, `button--tertiary`, `button--contained`,
 
 ### Redux Loader Reducer
 
