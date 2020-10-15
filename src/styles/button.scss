@@ -61,6 +61,7 @@ $button-padding: 0.75rem;
   appearance: none;
   opacity: 1;
   transition: opacity 0.75s;
+  cursor: pointer;
 
   &--sm {
     padding: 0.75rem;

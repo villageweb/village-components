@@ -2,7 +2,7 @@ import React from "react";
 import { Loader } from "./Loader";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  isLoading: boolean | undefined;
+  isLoading?: boolean | undefined;
 }
 
 const Button: React.FC<ButtonProps> = ({ isLoading, ...props }) => {

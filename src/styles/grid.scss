@@ -22,6 +22,10 @@
   }
 }
 
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
 .align {
   &--start {
     align-self: flex-start;

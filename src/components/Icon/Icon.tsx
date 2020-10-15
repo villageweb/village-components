@@ -41,6 +41,7 @@ const Icon = ({ name, className, size, onClick }: IconProps) => {
   let placeholder;
 
   if (!icon) {
+    // TODO: just return the placeholder. Do not bother with anything else.
     placeholder = (
       <span
         className={`icon-placeholder icon-placeholder--${size} ${className}`}
