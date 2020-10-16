@@ -22,8 +22,13 @@
   }
 }
 
-.flex--wrap {
-  flex-wrap: wrap;
+.flex {
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  &--1 {
+    flex: 1;
+  }
 }
 
 .align {
