@@ -133,7 +133,9 @@ NotificationProps = {
 ```typescript
 import { Button } from "village-components";
 
-<Button isLoading={false} mode="primary" isContained={true} />;
+<Button isLoading={false} mode="primary" isContained>
+  Click Me!!
+</Button>;
 ```
 
 #### Props
@@ -147,6 +149,7 @@ import { Button } from "village-components";
 ```
 
 #### Classes to override
+
 `button`, `button--primary`, `button--secondary`, `button--tertiary`, `button--contained`,
 
 ### Redux Loader Reducer

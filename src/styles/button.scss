@@ -113,4 +113,14 @@ $button-padding: 0.75rem;
   &--contained {
     width: unset;
   }
+
+  &--reset {
+    appearance: none;
+    color: inherit;
+    background-color: none;
+    font: inherit;
+    outline: none;
+    text-decoration: none;
+    border: none;
+  }
 }

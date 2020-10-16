@@ -6,7 +6,9 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "deploy": "npm run build && npm version patch && npm publish"
+    "deploy": "npm run build && npm version patch && npm publish",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -27,16 +29,22 @@
     "dist"
   ],
   "devDependencies": {
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/react": "^6.0.26",
     "@types/lodash": "^4.14.158",
     "@types/react": "^16.9.43",
     "@types/react-datepicker": "^3.1.0",
     "@types/react-dom": "^16.9.8",
     "axios": "^0.19.2",
     "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "babel-runtime": "^6.26.0",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
     "rollup": "^2.22.2",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-sass": "^1.2.2",
