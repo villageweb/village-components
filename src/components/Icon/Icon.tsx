@@ -76,6 +76,4 @@ Icon.defaultProps = {
   size: "md",
 };
 
-export default Icon;
-
 export { Icon, IconProps };

@@ -4,3 +4,4 @@ export * from "./Notification";
 export * from "./Icon/Icon";
 export * from "./Form/Form";
 export * from "./Form/form-config";
+export * from "./Counter";
