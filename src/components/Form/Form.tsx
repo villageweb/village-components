@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import React, { Component, FormEvent } from "react";
+import React, { Component, FormEvent, ReactElement } from "react";
 import {
   getFormValues,
   isFormValid,
@@ -12,19 +12,62 @@ import { Button } from "../Button";
 import Field from "./Field";
 import { FormConfig } from "./form-config";
 
-type FormProps = {
+interface FormProps {
+  /**
+   * Object describing the form
+   */
   config: FormConfig;
-  error?: string;
-  isLoading?: boolean;
-  submit: (e: Record<string, any>) => void;
-  onChanges?: (e: Record<string, any>) => void;
+
+  /**
+   * Text content for submit button
+   */
   submitButtonText: string;
-  footerContent?: any;
-  subFooterContent?: any;
-  headerContent?: any;
+
+  /**
+   * Callback for submit button click. Will be called with form values.
+   */
+  onSubmit: (e: Record<string, any>) => void;
+
+  /**
+   * Pass in any error you want to display on the footer of the form
+   */
+  error?: string;
+
+  /**
+   * Adds a loading indicator on the submit button
+   */
+  isLoading?: boolean;
+
+  /**
+   * Callback for any form value changes. Will be called with latest form values.
+   */
+  onChanges?: (e: Record<string, any>) => void;
+
+  /**
+   * JSX to be injected on the form footer e.g Forgot Password on a login form
+   */
+  footerContent?: ReactElement;
+
+  /**
+   * JSX to be injected on the form just above the submit button e.g Forgot Password on a login form
+   */
+  subFooterContent?: ReactElement;
+
+  /**
+   * JSX to be injected on the top of the form.
+   */
+  headerContent?: ReactElement;
+
+  /**
+   * Classes to be passed down to form
+   */
   className?: string;
+
+  /**
+   * Add class `shadow` (that can be overridden) to form
+   */
   noShadow?: boolean;
-};
+}
 
 class Form extends Component<FormProps> {
   state = { config: {}, isValid: false };
@@ -58,7 +101,7 @@ class Form extends Component<FormProps> {
 
   onSubmit(e: FormEvent) {
     e.preventDefault();
-    this.props.submit(getFormValues(this.state.config));
+    this.props.onSubmit(getFormValues(this.state.config));
   }
 
   render() {

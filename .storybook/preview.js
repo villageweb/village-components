@@ -1,6 +1,6 @@
 // TODO: this will most likely only work locally
 import "../dist/index.css";
-import "../src/stories/index.css";
+import "../src/stories/index.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

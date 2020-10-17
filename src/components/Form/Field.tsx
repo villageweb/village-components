@@ -178,8 +178,12 @@ const Field = (props: any) => {
   if (!props.valid && props.dirty) {
     validationMessage = (
       <span className="form__validation">
-        <Icon name="warning" className="margin-r--xs fill--warn" size="sm" />
-        {props.validationMessage}
+        <Icon
+          name="warning"
+          className="margin-r--xs fill--warn v-align--middle"
+          size="sm"
+        />
+        <span className="v-align--middle">{props.validationMessage}</span>
       </span>
     );
   }
