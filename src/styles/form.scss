@@ -1,5 +1,5 @@
-@import "styles/variables";
-@import "styles/breakpoints";
+@import 'styles/variables';
+@import 'styles/breakpoints';
 
 @mixin label-or-validation {
   display: block;
@@ -71,7 +71,7 @@
     }
 
     &-checkmark:after {
-      content: "";
+      content: '';
       position: absolute;
       display: none;
     }

@@ -1,5 +1,5 @@
-import React from "react";
-import { Loader } from "./Loader";
+import React from 'react';
+import { Loader } from './Loader';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -10,7 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Adds class button--${mode} to button. Override these classes for custom styling of CTAs
    */
-  mode?: "primary" | "secondary" | "tertiary";
+  mode?: 'primary' | 'secondary' | 'tertiary';
 
   /**
    * Removes width property such that button size is based on its children
@@ -22,12 +22,12 @@ const Button: React.FC<ButtonProps> = ({
   isLoading,
   className,
   isContained,
-  mode = "primary",
+  mode = 'primary',
   ...props
 }) => {
-  const hideButtonClass = isLoading ? "visibility--hidden" : "";
-  const hideLoaderClass = !isLoading ? "visibility--hidden" : "";
-  const containedClass = isContained ? "button--contained" : "";
+  const hideButtonClass = isLoading ? 'visibility--hidden' : '';
+  const hideLoaderClass = !isLoading ? 'visibility--hidden' : '';
+  const containedClass = isContained ? 'button--contained' : '';
   return (
     <button
       {...props}
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
       <span className={hideButtonClass}>{props.children}</span>
       <Loader
         className={`${hideLoaderClass} ${
-          className?.includes("button--transparent") ? "loader--black" : ""
+          className?.includes('button--transparent') ? 'loader--black' : ''
         }`}
       />
     </button>

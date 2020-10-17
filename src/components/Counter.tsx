@@ -1,5 +1,5 @@
-import React, { ReactElement, useState } from "react";
-import { Icon } from "./Icon/Icon";
+import React, { ReactElement, useState } from 'react';
+import { Icon } from './Icon/Icon';
 
 const Counter = ({
   initialValue = 1,
@@ -7,8 +7,8 @@ const Counter = ({
   onChange,
   minusContent,
   plusContent,
-  minusIcon = "circle-minus",
-  plusIcon = "circle-plus",
+  minusIcon = 'circle-minus',
+  plusIcon = 'circle-plus'
 }: {
   initialValue?: number;
   max?: number;

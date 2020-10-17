@@ -1,5 +1,5 @@
-@import "styles/variables";
-@import "styles/breakpoints";
+@import 'styles/variables';
+@import 'styles/breakpoints';
 
 .message {
   box-shadow: $shadow;
@@ -11,7 +11,7 @@
   background-color: transparentize($color: white, $amount: 0.025);
   z-index: 999;
   width: 300px;
-  
+
   left: calc(50% - 150px);
   padding: 5%;
   border-radius: 2px;
@@ -20,7 +20,7 @@
     border-radius: 5px;
     padding: 25px;
   }
-  
+
   &--go {
     opacity: 0;
     top: -100px;

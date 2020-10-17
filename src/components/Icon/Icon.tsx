@@ -1,16 +1,16 @@
-import axios, { Canceler } from "axios";
-import React, { SyntheticEvent, useContext, useEffect, useState } from "react";
-import IconContext from "./IconContext";
+import axios, { Canceler } from 'axios';
+import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import IconContext from './IconContext';
 
 type IconProps = {
   name: string;
   className?: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xlg";
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xlg';
   onClick?: (event?: SyntheticEvent) => void;
 };
 
 const Icon = ({ name, className, size, onClick }: IconProps) => {
-  const [icon, setIcon] = useState("");
+  const [icon, setIcon] = useState('');
   const cache = useContext(IconContext);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Icon = ({ name, className, size, onClick }: IconProps) => {
         const { data } = await axios.get(
           `https://res.cloudinary.com/vw/image/upload/icons/${name}.svg`,
           {
-            cancelToken: new axios.CancelToken((c) => (cancelFetch = c)),
+            cancelToken: new axios.CancelToken(c => (cancelFetch = c))
           }
         );
 
@@ -52,16 +52,16 @@ const Icon = ({ name, className, size, onClick }: IconProps) => {
   let __html = icon;
 
   if (className || size) {
-    const template = document.createElement("template");
+    const template = document.createElement('template');
     template.innerHTML = icon;
 
     const el = template.content.firstElementChild;
     el?.classList.add(`icon--${size}`);
     el?.classList.add(
-      ...(className?.split(" ").filter((c: string) => !!c) || [])
+      ...(className?.split(' ').filter((c: string) => !!c) || [])
     );
 
-    __html = el?.outerHTML || "";
+    __html = el?.outerHTML || '';
   }
 
   return (
@@ -73,7 +73,7 @@ const Icon = ({ name, className, size, onClick }: IconProps) => {
 };
 
 Icon.defaultProps = {
-  size: "md",
+  size: 'md'
 };
 
 export { Icon, IconProps };

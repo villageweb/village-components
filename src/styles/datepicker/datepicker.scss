@@ -1,6 +1,6 @@
-@import "variables";
-@import "../variables";
-@import "mixins";
+@import 'variables';
+@import '../variables';
+@import 'mixins';
 
 $primary-color: blue;
 $gray-2: #aeaeae;
@@ -49,7 +49,7 @@ $gray-3: #cacaca;
 .react-datepicker-popper {
   z-index: 1;
 
-  &[data-placement^="bottom"] {
+  &[data-placement^='bottom'] {
     margin-top: 0;
     // left: auto !important;
 
@@ -58,15 +58,15 @@ $gray-3: #cacaca;
     }
   }
 
-  &[data-placement="bottom-end"],
-  &[data-placement="top-end"] {
+  &[data-placement='bottom-end'],
+  &[data-placement='top-end'] {
     .react-datepicker__triangle {
       left: auto;
       right: 50px;
     }
   }
 
-  &[data-placement^="top"] {
+  &[data-placement^='top'] {
     margin-bottom: $datepicker__triangle-size + 2px;
 
     .react-datepicker__triangle {
@@ -74,7 +74,7 @@ $gray-3: #cacaca;
     }
   }
 
-  &[data-placement^="right"] {
+  &[data-placement^='right'] {
     margin-left: $datepicker__triangle-size;
 
     .react-datepicker__triangle {
@@ -83,7 +83,7 @@ $gray-3: #cacaca;
     }
   }
 
-  &[data-placement^="left"] {
+  &[data-placement^='left'] {
     margin-right: $datepicker__triangle-size;
 
     .react-datepicker__triangle {
@@ -227,12 +227,12 @@ $gray-3: #cacaca;
       input {
         width: 100px;
       }
-      input[type="time"]::-webkit-inner-spin-button,
-      input[type="time"]::-webkit-outer-spin-button {
+      input[type='time']::-webkit-inner-spin-button,
+      input[type='time']::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
-      input[type="time"] {
+      input[type='time'] {
         -moz-appearance: textfield;
       }
     }
@@ -597,7 +597,7 @@ $gray-3: #cacaca;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    content: "\00d7";
+    content: '\00d7';
   }
 }
 

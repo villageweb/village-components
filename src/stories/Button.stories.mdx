@@ -1,5 +1,5 @@
-import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
-import { Button } from "../components/Button";
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Button } from '../components/Button';
 
 <Meta title="Components/Button" component={Button} />
 
@@ -16,15 +16,15 @@ Re-usable button component. For own styling override classes, `button button--pr
 
 <br />
 
-export const Template = (args) => <Button {...args} />;
+export const Template = args => <Button {...args} />;
 
 ### Primary
 
 <Story
   name="Primary"
   args={{
-    mode: "primary",
-    children: "Submit",
+    mode: 'primary',
+    children: 'Submit'
   }}
 >
   {Template.bind({})}
@@ -35,8 +35,8 @@ export const Template = (args) => <Button {...args} />;
 <Story
   name="Secondary"
   args={{
-    mode: "secondary",
-    children: "Cancel",
+    mode: 'secondary',
+    children: 'Cancel'
   }}
 >
   {Template.bind({})}
@@ -47,8 +47,8 @@ export const Template = (args) => <Button {...args} />;
 <Story
   name="Tertiary"
   args={{
-    mode: "tertiary",
-    children: "Read more",
+    mode: 'tertiary',
+    children: 'Read more'
   }}
 >
   {Template.bind({})}
@@ -59,9 +59,9 @@ export const Template = (args) => <Button {...args} />;
 <Story
   name="Loading"
   args={{
-    mode: "primary",
+    mode: 'primary',
     isLoading: true,
-    children: "Submit",
+    children: 'Submit'
   }}
 >
   {Template.bind({})}
@@ -72,9 +72,9 @@ export const Template = (args) => <Button {...args} />;
 <Story
   name="Contained"
   args={{
-    mode: "primary",
+    mode: 'primary',
     isContained: true,
-    children: "Submit",
+    children: 'Submit'
   }}
 >
   {Template.bind({})}

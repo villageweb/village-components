@@ -1,5 +1,5 @@
-const START_ASYNC = "START_ASYNC";
-const STOP_ASYNC = "STOP_ASYNC";
+const START_ASYNC = 'START_ASYNC';
+const STOP_ASYNC = 'STOP_ASYNC';
 
 type LoadingAction = { action: string };
 
@@ -20,12 +20,12 @@ const reducer = (
 
 const startAsync = (action: string, params?: object) => ({
   type: START_ASYNC,
-  payload: { action, ...params },
+  payload: { action, ...params }
 });
 
 const stopAsync = (action: string, params?: object) => ({
   type: STOP_ASYNC,
-  payload: { action, ...params },
+  payload: { action, ...params }
 });
 
 export { startAsync, stopAsync, reducer as reduxLoaderReducer };

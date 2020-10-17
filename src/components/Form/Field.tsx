@@ -1,16 +1,16 @@
-import { endOfDay, isToday } from "date-fns";
-import React from "react";
-import DatePicker from "react-datepicker";
-import "../../styles/datepicker/datepicker.scss";
-import { Icon } from "../Icon/Icon";
-import { FieldInputType } from "./form-config";
+import { endOfDay, isToday } from 'date-fns';
+import React from 'react';
+import DatePicker from 'react-datepicker';
+import '../../styles/datepicker/datepicker.scss';
+import { Icon } from '../Icon/Icon';
+import { FieldInputType } from './form-config';
 
 const Field = (props: any) => {
   let inputEl = null;
 
   const inputType: FieldInputType = props.inputType;
   switch (inputType) {
-    case "slider":
+    case 'slider':
       inputEl = (
         <input
           type="range"
@@ -21,7 +21,7 @@ const Field = (props: any) => {
         />
       );
       break;
-    case "input":
+    case 'input':
       inputEl = (
         <input
           {...props.attributes}
@@ -31,7 +31,7 @@ const Field = (props: any) => {
         />
       );
       break;
-    case "select":
+    case 'select':
       inputEl = (
         <select
           {...props.attributes}
@@ -48,7 +48,7 @@ const Field = (props: any) => {
         </select>
       );
       break;
-    case "check":
+    case 'check':
       props.attributes.value = props.attributes.value
         ? props.attributes.value
         : false;
@@ -57,7 +57,7 @@ const Field = (props: any) => {
           <input
             {...props.attributes}
             name={props.id}
-            onChange={(e) =>
+            onChange={e =>
               props.changed({ target: { value: e.target.checked } })
             }
           />
@@ -65,7 +65,7 @@ const Field = (props: any) => {
         </label>
       );
       break;
-    case "radio":
+    case 'radio':
       inputEl = props.fields.map((field: any) => (
         <label className="form__radio" key={field.value}>
           <input
@@ -80,7 +80,7 @@ const Field = (props: any) => {
         </label>
       ));
       break;
-    case "textarea":
+    case 'textarea':
       inputEl = (
         <textarea
           className="form__input form__textarea text--sm"
@@ -90,7 +90,7 @@ const Field = (props: any) => {
         />
       );
       break;
-    case "date":
+    case 'date':
       let val = new Date();
       const other = props.form[props.attributes.notBefore];
       if (props.attributes.notBefore) {
@@ -113,11 +113,11 @@ const Field = (props: any) => {
       if (props.attributes.notBefore) {
         minDate = getDate(other.attributes.value);
       }
-      if (props.min === "today") {
+      if (props.min === 'today') {
         minDate = new Date();
       }
       let maxDate;
-      if (props.max === "week") {
+      if (props.max === 'week') {
         maxDate = new Date();
         maxDate.setDate(new Date().getDate() + 6);
       }
@@ -125,7 +125,7 @@ const Field = (props: any) => {
       inputEl = (
         <DatePicker
           selected={val}
-          onChange={(val) => props.changed({ target: { value: val } })}
+          onChange={val => props.changed({ target: { value: val } })}
           className="form__input cursor--pointer"
           minDate={minDate}
           maxDate={maxDate}
@@ -133,7 +133,7 @@ const Field = (props: any) => {
         />
       );
       break;
-    case "time":
+    case 'time':
       let time = props.attributes.value;
       if (!time) {
         time = roundToMins(new Date());
@@ -141,7 +141,7 @@ const Field = (props: any) => {
 
       props.attributes.value = time;
 
-      const minTime = isToday(props.form["visitDay"].attributes.value)
+      const minTime = isToday(props.form['visitDay'].attributes.value)
         ? new Date()
         : endOfDay(new Date());
       const maxTime = new Date(new Date().setHours(23));
@@ -150,7 +150,7 @@ const Field = (props: any) => {
       inputEl = (
         <DatePicker
           selected={time}
-          onChange={(time) => props.changed({ target: { value: time } })}
+          onChange={time => props.changed({ target: { value: time } })}
           showTimeSelect
           showTimeSelectOnly
           minTime={roundToMins(minTime)}
@@ -167,7 +167,7 @@ const Field = (props: any) => {
   }
 
   let label = null;
-  if ((props.valid || !props.dirty) && inputType !== "check") {
+  if ((props.valid || !props.dirty) && inputType !== 'check') {
     label = (
       <label className="form__label">
         {/* <Icon name="circle-tick" className="margin-r--xs fill--success" size="sm" /> */}
@@ -198,7 +198,7 @@ const Field = (props: any) => {
   }
 
   return (
-    <div className={["margin-b--lg", props.className].join(" ")}>
+    <div className={['margin-b--lg', props.className].join(' ')}>
       {validationMessage}
       {label}
       {inputEl}

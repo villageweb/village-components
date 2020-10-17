@@ -1,4 +1,4 @@
-import "./index.scss";
+import './index.scss';
 
-export * from "./functions";
-export * from "./components";
+export * from './functions';
+export * from './components';

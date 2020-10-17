@@ -1,12 +1,12 @@
 type FieldInputType =
-  | "input"
-  | "date"
-  | "textarea"
-  | "select"
-  | "check"
-  | "radio"
-  | "time"
-  | "slider";
+  | 'input'
+  | 'date'
+  | 'textarea'
+  | 'select'
+  | 'check'
+  | 'radio'
+  | 'time'
+  | 'slider';
 
 interface FieldConfig {
   inputType: FieldInputType;

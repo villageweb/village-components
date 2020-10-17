@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Icon } from "./Icon/Icon";
+import React, { Component } from 'react';
+import { Icon } from './Icon/Icon';
 
 type NotificationProps = {
   message: string;
-  type?: "success" | "fail";
+  type?: 'success' | 'fail';
   persist?: boolean;
   onClose?: () => void;
 };
@@ -25,10 +25,10 @@ class Notification extends Component<NotificationProps> {
       return null;
     }
 
-    let animationClass = "message--stay";
+    let animationClass = 'message--stay';
 
     if (!persist) {
-      animationClass = "message--go";
+      animationClass = 'message--go';
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.close();
@@ -41,7 +41,7 @@ class Notification extends Component<NotificationProps> {
         onClick={this.close}
       >
         <Icon
-          name={`${type === "success" ? "circle-tick" : "circle-cross"}`}
+          name={`${type === 'success' ? 'circle-tick' : 'circle-cross'}`}
           size="md"
           className={`fill--${type} margin-r--sm v-align--middle cursor--pointer`}
         />

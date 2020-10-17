@@ -2,9 +2,9 @@ const SMALL = 425;
 const MEDIUM = 768;
 
 enum DeviceSize {
-  SMALL = "SMALL",
-  MEDIUM = "MEDIUM",
-  LARGE = "LARGE",
+  SMALL = 'SMALL',
+  MEDIUM = 'MEDIUM',
+  LARGE = 'LARGE'
 }
 
 const getDevice = (): DeviceSize => {

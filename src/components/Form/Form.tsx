@@ -1,20 +1,20 @@
-import { cloneDeep } from "lodash";
-import React, { Component, FormEvent, ReactElement } from "react";
+import { cloneDeep } from 'lodash';
+import React, { Component, FormEvent, ReactElement } from 'react';
 import {
   getFormValues,
   isFormValid,
   markDirtyFields,
   markValidFields,
   markVisibleFields,
-  validateField,
-} from "../../functions/form-functions";
-import { Button } from "../Button";
-import Field from "./Field";
-import { FieldConfig, FormConfig } from "./form-config";
+  validateField
+} from '../../functions/form-functions';
+import { Button } from '../Button';
+import Field from './Field';
+import { FieldConfig, FormConfig } from './form-config';
 
 interface FormProps {
   /**
-   * Object describing the form
+   * Object describing the form and keeping its state
    */
   config: FormConfig;
 
@@ -31,7 +31,7 @@ interface FormProps {
   /**
    * Specifies whether the form is single or double column
    */
-  columnType?: "single" | "double";
+  columnType?: 'single' | 'double';
 
   /**
    * Pass in any error you want to display on the footer of the form
@@ -78,7 +78,7 @@ class Form extends Component<FormProps> {
   state = { config: {}, isValid: false };
 
   static defaultProps = {
-    columnType: "single",
+    columnType: 'single'
   };
 
   componentDidMount() {
@@ -135,10 +135,10 @@ class Form extends Component<FormProps> {
             this.handleChanges(event?.target?.value, key, this.state.config)
           }
           className={
-            this.props.columnType === "double" &&
-            !["check", "textarea"].includes(field.inputType)
-              ? "form__field--half"
-              : "form__field--full"
+            this.props.columnType === 'double' &&
+            !['check', 'textarea'].includes(field.inputType)
+              ? 'form__field--half'
+              : 'form__field--full'
           }
         />
       ));
@@ -148,14 +148,14 @@ class Form extends Component<FormProps> {
     ) : null;
 
     const columnTypeClasses =
-      this.props.columnType === "double" ? "grid grid--space-between" : "";
+      this.props.columnType === 'double' ? 'grid grid--space-between' : '';
 
     return (
       <form
-        className={`form ${this.props.noShadow ? "" : "shadow"} ${
+        className={`form ${this.props.noShadow ? '' : 'shadow'} ${
           this.props.className
         } ${columnTypeClasses}`}
-        onSubmit={(e) => this.onSubmit(e)}
+        onSubmit={e => this.onSubmit(e)}
       >
         {this.props.headerContent}
         {fields}

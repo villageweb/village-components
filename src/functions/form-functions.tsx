@@ -1,5 +1,5 @@
-import { cloneDeep } from "lodash";
-import { FormConfig, FieldConfig } from "../components/Form/form-config";
+import { cloneDeep } from 'lodash';
+import { FormConfig, FieldConfig } from '../components/Form/form-config';
 
 /**
  * Return false if at least one field in the form is invalid
@@ -16,7 +16,7 @@ const isFormValid = (form: FormConfig) => {
 };
 
 const isRequired = (field: FieldConfig) =>
-  field.validations?.some((v) => v.type === "required");
+  field.validations?.some(v => v.type === 'required');
 /**
  * NB!! Mutates the field
  * Sets validation message for field should the field be invalid and marks it so
@@ -32,27 +32,27 @@ const validateField = (key: string, form: FormConfig) => {
 
   const value = field.attributes.value;
   for (const rule of field.validations) {
-    if (rule.type === "required" && rule.expression && value.trim() === "") {
+    if (rule.type === 'required' && rule.expression && value.trim() === '') {
       field.validationMessage = rule.message;
       field.valid = false;
       break;
     } else if (
-      rule.type === "regex" &&
+      rule.type === 'regex' &&
       !(rule.expression as RegExp).test(value) &&
       isRequired(field)
     ) {
       field.valid = false;
       field.validationMessage = rule.message;
       break;
-    } else if (rule.type === "idNumber") {
+    } else if (rule.type === 'idNumber') {
       if (!validIdNumber(field.attributes.value)) {
         field.valid = false;
         field.validationMessage = rule.message;
       }
       break;
-    } else if (rule.type === "passwordMatch") {
-      const password = form["password"].attributes.value;
-      const passwordConfirm = form["passwordConfirm"];
+    } else if (rule.type === 'passwordMatch') {
+      const password = form['password'].attributes.value;
+      const passwordConfirm = form['passwordConfirm'];
 
       if (
         passwordConfirm.dirty &&
@@ -66,7 +66,7 @@ const validateField = (key: string, form: FormConfig) => {
         passwordConfirm.dirty &&
         password === passwordConfirm.attributes.value
       ) {
-        passwordConfirm.validationMessage = "";
+        passwordConfirm.validationMessage = '';
         passwordConfirm.valid = true;
         break;
       }
@@ -111,8 +111,8 @@ const markVisibleFields = (oldForm: FormConfig) => {
     const operator = field.visibility[1];
     const right = field.visibility[2];
 
-    if (operator === "eq") {
-      const parts = left.split(".");
+    if (operator === 'eq') {
+      const parts = left.split('.');
 
       // traversing object tree
       let part;
@@ -136,6 +136,7 @@ const getFormValues: any = (form: FormConfig) => {
   return formData;
 };
 
+// TODO: make this a patch like react setState()
 const populateFormValues = (form: FormConfig, data: object) => {
   if (!data) {
     return form;
@@ -169,7 +170,7 @@ function validIdNumber(idNumber: any) {
 
   if (
     !(
-      (tempDate.getFullYear() + "").substring(2, 4) ===
+      (tempDate.getFullYear() + '').substring(2, 4) ===
         idNumber.substring(0, 2) &&
       month === +idNumber.substring(2, 4) - 1 &&
       date === +idNumber.substring(4, 6)
@@ -218,5 +219,5 @@ export {
   markValidFields,
   markVisibleFields,
   validateField,
-  isFormValid,
+  isFormValid
 };
