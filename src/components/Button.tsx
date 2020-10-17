@@ -2,8 +2,19 @@ import React from "react";
 import { Loader } from "./Loader";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Adds loading indicator to button
+   */
   isLoading?: boolean | undefined;
+
+  /**
+   * Adds class button--${mode} to button. Override these classes for custom styling of CTAs
+   */
   mode?: "primary" | "secondary" | "tertiary";
+
+  /**
+   * Removes width property such that button size is based on its children
+   */
   isContained?: boolean;
 }
 

@@ -1,0 +1,75 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "../components/Button";
+
+<Meta title="Components/Button" component={Button} />
+
+# Button
+
+<br />
+<br />
+
+export const Template = (args) => <Button {...args} />;
+
+### Primary
+
+<Story
+  name="Primary"
+  args={{
+    mode: "primary",
+    children: "Submit",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+### Secondary
+
+<Story
+  name="Secondary"
+  args={{
+    mode: "secondary",
+    children: "Cancel",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+### Tertiary
+
+<Story
+  name="Tertiary"
+  args={{
+    mode: "tertiary",
+    children: "Read more",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+### Loading
+
+<Story
+  name="Loading"
+  args={{
+    mode: "primary",
+    isLoading: true,
+    children: "Submit",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+### Contained
+
+<Story
+  name="Contained"
+  args={{
+    mode: "primary",
+    isContained: true,
+    children: "Submit",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable of={Button} />

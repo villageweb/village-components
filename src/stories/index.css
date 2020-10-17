@@ -1,0 +1,23 @@
+:root {
+  --primary: hsl(352, 94%, 64%);
+}
+
+.button--primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.button--secondary {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  background-color: #fff;
+}
+
+.button--tertiary {
+  color: var(--primary);
+  background-color: #fff;
+}
+
+.button--tertiary:hover {
+  text-decoration: underline;
+}
