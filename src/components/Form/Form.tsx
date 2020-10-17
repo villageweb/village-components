@@ -10,7 +10,7 @@ import {
 } from "../../functions/form-functions";
 import { Button } from "../Button";
 import Field from "./Field";
-import { FormConfig } from "./form-config";
+import { FieldConfig, FormConfig } from "./form-config";
 
 interface FormProps {
   /**
@@ -27,6 +27,11 @@ interface FormProps {
    * Callback for submit button click. Will be called with form values.
    */
   onSubmit: (e: Record<string, any>) => void;
+
+  /**
+   * Specifies whether the form is single or double column
+   */
+  columnType?: "single" | "double";
 
   /**
    * Pass in any error you want to display on the footer of the form
@@ -72,6 +77,10 @@ interface FormProps {
 class Form extends Component<FormProps> {
   state = { config: {}, isValid: false };
 
+  static defaultProps = {
+    columnType: "single",
+  };
+
   componentDidMount() {
     let config = markVisibleFields(this.props.config);
     config = markValidFields(config);
@@ -106,8 +115,8 @@ class Form extends Component<FormProps> {
 
   render() {
     const fields = Object.entries(this.state.config)
-      .filter(([, field]: any) => field.visible)
-      .map(([key, field]: any) => (
+      .filter(([, field]: [any, FieldConfig]) => field.visible)
+      .map(([key, field]: [any, FieldConfig]) => (
         <Field
           id={key}
           form={this.state.config}
@@ -125,6 +134,12 @@ class Form extends Component<FormProps> {
           changed={(event: any) =>
             this.handleChanges(event?.target?.value, key, this.state.config)
           }
+          className={
+            this.props.columnType === "double" &&
+            !["check", "textarea"].includes(field.inputType)
+              ? "form__field--half"
+              : "form__field--full"
+          }
         />
       ));
 
@@ -132,11 +147,14 @@ class Form extends Component<FormProps> {
       <span className="form__error">{this.props.error}</span>
     ) : null;
 
+    const columnTypeClasses =
+      this.props.columnType === "double" ? "grid grid--space-between" : "";
+
     return (
       <form
         className={`form ${this.props.noShadow ? "" : "shadow"} ${
           this.props.className
-        }`}
+        } ${columnTypeClasses}`}
         onSubmit={(e) => this.onSubmit(e)}
       >
         {this.props.headerContent}

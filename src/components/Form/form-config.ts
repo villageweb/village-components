@@ -1,5 +1,15 @@
+type FieldInputType =
+  | "input"
+  | "date"
+  | "textarea"
+  | "select"
+  | "check"
+  | "radio"
+  | "time"
+  | "slider";
+
 interface FieldConfig {
-  inputType: string;
+  inputType: FieldInputType;
   label: string;
   fieldMessage?: string;
   min?: string;
@@ -32,7 +42,7 @@ interface FormConfig {
   [field: string]: FieldConfig;
 }
 
-export { FieldConfig, FormConfig };
+export { FieldInputType, FieldConfig, FormConfig };
 
 // EXAMPLE USAGE
 

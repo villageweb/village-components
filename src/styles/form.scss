@@ -8,7 +8,7 @@
 }
 
 .form {
-  max-width: map-get($map: $breakpoints, $key: small);
+  // max-width: map-get($map: $breakpoints, $key: small);
   min-width: map-get($map: $breakpoints, $key: min);
   padding: 30px;
   @include respond-to(medium) {
@@ -16,6 +16,16 @@
   }
 
   margin: 0 1rem;
+
+  &__field {
+    &--half {
+      flex-basis: 47%;
+    }
+    &--full {
+      flex-basis: 100%;
+    }
+  }
+
   &__input {
     outline: none;
     appearance: none;
@@ -85,7 +95,7 @@
     @include label-or-validation();
   }
   &__field-msg {
-    @include label-or-validation();
+    display: block;
     margin-top: 0.25rem;
   }
   &__validation {

@@ -1,13 +1,15 @@
 import { endOfDay, isToday } from "date-fns";
 import React from "react";
 import DatePicker from "react-datepicker";
-import { Icon } from "../Icon/Icon";
 import "../../styles/datepicker/datepicker.scss";
+import { Icon } from "../Icon/Icon";
+import { FieldInputType } from "./form-config";
 
 const Field = (props: any) => {
   let inputEl = null;
 
-  switch (props.inputType) {
+  const inputType: FieldInputType = props.inputType;
+  switch (inputType) {
     case "slider":
       inputEl = (
         <input
@@ -165,7 +167,7 @@ const Field = (props: any) => {
   }
 
   let label = null;
-  if (props.valid || !props.dirty) {
+  if ((props.valid || !props.dirty) && inputType !== "check") {
     label = (
       <label className="form__label">
         {/* <Icon name="circle-tick" className="margin-r--xs fill--success" size="sm" /> */}
@@ -196,7 +198,7 @@ const Field = (props: any) => {
   }
 
   return (
-    <div className="margin-b--lg">
+    <div className={["margin-b--lg", props.className].join(" ")}>
       {validationMessage}
       {label}
       {inputEl}
