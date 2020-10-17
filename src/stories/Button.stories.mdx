@@ -1,11 +1,19 @@
-import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Story, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Button } from "../components/Button";
 
 <Meta title="Components/Button" component={Button} />
 
 # Button
 
+Re-usable button component. For own styling override classes, `button button--primary button--secondary button--tertiary`
+
+- [Props](#props)
+- [Code example](#example)
+
 <br />
+
+## Types
+
 <br />
 
 export const Template = (args) => <Button {...args} />;
@@ -72,4 +80,18 @@ export const Template = (args) => <Button {...args} />;
   {Template.bind({})}
 </Story>
 
+<br />
+
+## Props
+
 <ArgsTable of={Button} />
+
+<br />
+
+## Example
+
+```jsx
+<Button isContained mode="secondary" className="margin-v--lg">
+  Cancel
+</Button>
+```
