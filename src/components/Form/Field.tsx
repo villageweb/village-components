@@ -86,6 +86,8 @@ const Field = (props: any) => {
           className="form__input form__textarea text--sm"
           onChange={props.changed}
           name={props.id}
+          maxLength={props.max}
+          minLength={props.min}
           {...props.attributes}
         />
       );

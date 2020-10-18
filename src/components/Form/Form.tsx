@@ -19,14 +19,14 @@ interface FormProps {
   config: FormConfig;
 
   /**
-   * Text content for submit button
+   * Text content for submit button. If set to none then no button will be rendered.
    */
-  submitButtonText: string;
+  submitButtonContent?: string | ReactElement | 'none';
 
   /**
    * Callback for submit button click. Will be called with form values.
    */
-  onSubmit: (e: Record<string, any>) => void;
+  onSubmit?: (e: Record<string, any>) => void;
 
   /**
    * Specifies whether the form is single or double column
@@ -44,9 +44,9 @@ interface FormProps {
   isLoading?: boolean;
 
   /**
-   * Callback for any form value changes. Will be called with latest form values.
+   * Callback for any form value changes. Will be called with boolean indication if form valid and the latest form.
    */
-  onChanges?: (e: Record<string, any>) => void;
+  onChanges?: (e: { isValid: boolean; config: FormConfig }) => void;
 
   /**
    * JSX to be injected on the form footer e.g Forgot Password on a login form
@@ -78,7 +78,8 @@ class Form extends Component<FormProps> {
   state = { config: {}, isValid: false };
 
   static defaultProps = {
-    columnType: 'single'
+    columnType: 'single',
+    submitButtonContent: 'none'
   };
 
   componentDidMount() {
@@ -103,14 +104,16 @@ class Form extends Component<FormProps> {
 
     const latestForm = markVisibleFields(form);
 
-    this.props.onChanges && this.props.onChanges(getFormValues(latestForm));
+    const newState = { isValid: isFormValid(latestForm), config: latestForm };
+    this.props.onChanges && this.props.onChanges(newState);
 
-    this.setState({ isValid: isFormValid(latestForm), config: latestForm });
+    this.setState(newState);
   };
 
   onSubmit(e: FormEvent) {
     e.preventDefault();
-    this.props.onSubmit(getFormValues(this.state.config));
+    this.props.onSubmit &&
+      this.props.onSubmit(getFormValues(this.state.config));
   }
 
   render() {
@@ -160,14 +163,16 @@ class Form extends Component<FormProps> {
         {this.props.headerContent}
         {fields}
         {this.props.subFooterContent}
-        <Button
-          className="button button--primary"
-          type="submit"
-          isLoading={this.props.isLoading}
-          disabled={!this.state.isValid}
-        >
-          {this.props.submitButtonText}
-        </Button>
+        {this.props.submitButtonContent !== 'none' && (
+          <Button
+            className="button button--primary"
+            type="submit"
+            isLoading={this.props.isLoading}
+            disabled={!this.state.isValid}
+          >
+            {this.props.submitButtonContent}
+          </Button>
+        )}
         {error}
         {this.props.footerContent}
       </form>

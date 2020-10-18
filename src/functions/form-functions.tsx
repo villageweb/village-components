@@ -128,16 +128,19 @@ const markVisibleFields = (oldForm: FormConfig) => {
   return form;
 };
 
-const getFormValues: any = (form: FormConfig) => {
+const getFormValues = (form: FormConfig): Record<string, any> => {
   let formData = {};
   Object.entries(form)
-    .filter(([, config]: any) => !!config.visible)
-    .forEach(([key, config]: any) => (formData[key] = config.attributes.value));
+    .filter(([, config]: [any, FieldConfig]) => !!config.visible)
+    .forEach(
+      ([key, config]: [any, FieldConfig]) =>
+        (formData[key] = config.attributes.value)
+    );
   return formData;
 };
 
 // TODO: make this a patch like react setState()
-const populateFormValues = (form: FormConfig, data: object) => {
+const populateFormValues = (form: FormConfig, data: Record<string, any>) => {
   if (!data) {
     return form;
   }
