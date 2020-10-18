@@ -21,7 +21,7 @@ interface FormProps {
   /**
    * Text content for submit button. If set to none then no button will be rendered.
    */
-  submitButtonContent?: string | ReactElement | 'none';
+  submitButtonContent?: 'none' | string | ReactElement;
 
   /**
    * Callback for submit button click. Will be called with form values.
